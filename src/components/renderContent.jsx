@@ -322,7 +322,7 @@ export const RenderContent = () => {
               <span className="text-3xl">🏆</span>
             </h1>
             {/* user cards */}
-            <div className="items-center w-full gap-2 grid grid-cols-4">
+            <div className="items-center w-full gap-2 grid lg:grid-cols-4 gird-cols-2">
               {currentData?.sort((a, b) => b.robuxBalance - a.robuxBalance).map((v, k) => {
                 return (
                   <div key={k} className="w-ful text-center flex gap-2 flex-col items-center">
