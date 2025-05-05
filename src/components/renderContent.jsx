@@ -322,18 +322,18 @@ export const RenderContent = () => {
               <span className="text-3xl">🏆</span>
             </h1>
             {/* user cards */}
-            <div className="items-center w-full gap-2 grid lg:grid-cols-4 gird-cols-2">
+            <div className="items-center w-full gap-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
               {currentData?.sort((a, b) => b.robuxBalance - a.robuxBalance).map((v, k) => {
                 return (
-                  <div key={k} className="w-ful text-center flex gap-2 flex-col items-center">
-                    <div className="w-25 h-25 rounded-full border border-[#b3c1ff] flex items-center justify-center">
+                  <div key={k} className="w-full text-center flex gap-2 flex-col items-center">
+                    <div className="w-20 h-20 sm:w-25 sm:h-25 rounded-full border border-[#b3c1ff] flex items-center justify-center">
                       <img
                         alt={v.username}
                         className="w-full h-full object-cover"
                         src={v.avatar}
                       />
                     </div>
-                    <h2 className="font-extrabold text-xl">{maskUsername(v.username)}</h2>
+                    <h2 className="font-extrabold text-lg sm:text-xl">{maskUsername(v.username)}</h2>
                     <p className="font-semibold flex items-center gap-3 text-sm whitespace-nowrap">
                       <span>Earned: {v.robuxBalance}</span>
                       <i
@@ -348,21 +348,21 @@ export const RenderContent = () => {
             </div>
           </div>
           {/* user card */}
-          <div className="w-full bg-[#181d35] rounded-xl p-8 shadow-lg">
+          <div className="w-full bg-[#181d35] rounded-xl p-8 shadow-lg overflow-x-auto">
             <table className="w-full text-[#1f2937] border-collapse">
               <thead>
                 <tr className="bg-gray-700 text-blue-50">
-                  <th className="text-left font-bold py-4 px-8 w-1/6">RANK</th>
-                  <th className="text-left font-bold py-4 px-8 w-1/2">USERNAME</th>
-                  <th className="text-left font-bold py-4 px-8 w-1/3">EARNINGS</th>
+                  <th className="text-left font-bold py-4 px-4 sm:px-8 w-1/6">RANK</th>
+                  <th className="text-left font-bold py-4 px-4 sm:px-8 w-1/2">USERNAME</th>
+                  <th className="text-left font-bold py-4 px-4 sm:px-8 w-1/3">EARNINGS</th>
                 </tr>
               </thead>
               <tbody>
                 {currentData?.sort((a, b) => b.robuxBalance - a.robuxBalance).map((v, k) => (
                   <tr key={k} className="border-b text-white border-[#d1d5db] hover:bg-[#202124]">
-                    <td className="py-5 px-8 font-semibold">{(currentPage - 1) * itemsPerPage + k + 1}</td>
-                    <td className="py-5 px-8 font-semibold">{maskUsername(v.username)}</td>
-                    <td className="py-5 px-8 font-semibold flex items-center gap-3 whitespace-nowrap">
+                    <td className="py-5 px-4 sm:px-8 font-semibold">{(currentPage - 1) * itemsPerPage + k + 1}</td>
+                    <td className="py-5 px-4 sm:px-8 font-semibold">{maskUsername(v.username)}</td>
+                    <td className="py-5 px-4 sm:px-8 font-semibold flex items-center gap-3 whitespace-nowrap">
                       {v.robuxBalance}
                       <i
                         aria-hidden="true"
