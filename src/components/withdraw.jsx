@@ -75,28 +75,32 @@ const Withdraw = ({ withdrawHandler }) => {
 
   return (
     <>
-      <div className="container-fluid p-20 sm:p-10">
+      <div className="container-fluid p-6 sm:p-4">
         <section className="border border-gray-800 rounded-xl bg-black shadow-md lg:w-[75%] md:w-[80%] mx-auto sm:w-[90%]">
           <div className="p-4">
-            <h2 className="font-bold text-white text-lg mb-2">
+            <h2 className="font-bold text-white text-lg mb-2 text-center sm:text-left">
               Trouble withdrawing?
             </h2>
-            <p className="text-gray-400 mb-3 text-base">
+            <p className="text-gray-400 mb-3 text-base text-center sm:text-left">
               Join our Discord and we will help you out!
             </p>
-            <button
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-md shadow-md transition-colors duration-200"
-              type="button"
-            >
-              Join Discord
-            </button>
+            <div className="flex justify-center sm:justify-start">
+              <button
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-md shadow-md transition-colors duration-200"
+                type="button"
+              >
+                Join Discord
+              </button>
+            </div>
           </div>
         </section>
-        <div className="text-[#b3b6c5] font-extrabold text-2xl select-none mt-5 mb-5 lg:w-[75%] md:w-[80%] mx-auto sm:w-[90%]">
+        <div className="text-[#b3b6c5] font-extrabold text-2xl select-none mt-5 mb-5 lg:w-[75%] md:w-[80%] mx-auto sm:w-[90%] text-center">
           Withdraw robux
         </div>
         <section className="rounded-xl bg-black p-6 shadow-md space-y-6 lg:w-[75%] md:w-[80%] mx-auto sm:w-[90%]">
-          <h2 className="text-[#eaedf5] font-extrabold text-lg">Pass payout</h2>
+          <h2 className="text-[#eaedf5] font-extrabold text-lg text-center sm:text-left">
+            Pass payout
+          </h2>
           <section className="flex flex-col md:flex-row gap-4">
             <div className="flex-1 border border-[#21395e] rounded-lg p-4 text-center md:text-left bg-[#1754]">
               <p className="font-semibold text-[#e6e7eb] mb-1">Your balance:</p>
@@ -127,11 +131,16 @@ const Withdraw = ({ withdrawHandler }) => {
           <section className="space-y-3">
             <div className="flex justify-between items-center">
               <p className="text-[#b5b7bb] font-semibold">Select game</p>
-              <a className="text-[#3B49E0] font-semibold text-sm" href="https://www.roblox.com/develop" target="_blank" rel="noopener noreferrer">
+              <a
+                className="text-[#3B49E0] font-semibold text-sm"
+                href="https://www.roblox.com/develop"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Create new game
               </a>
             </div>
-            
+
             {loading && games.length === 0 ? (
               <div className="w-full flex items-center justify-center p-4 bg-[#1E2237] rounded-lg">
                 <p className="text-white">Loading your games...</p>
@@ -165,7 +174,10 @@ const Withdraw = ({ withdrawHandler }) => {
             )}
           </section>
           <section className="space-y-2">
-            <label className="block text-[#b5b7bb] font-semibold" htmlFor="withdraw">
+            <label
+              className="block text-[#b5b7bb] font-semibold"
+              htmlFor="withdraw"
+            >
               How much would you like to withdraw?
             </label>
             <p className="italic text-[#a3a7ae] text-sm -mt-1 mb-2">
@@ -193,24 +205,30 @@ const Withdraw = ({ withdrawHandler }) => {
               server.
             </p>
           </section>
-          
+
           {error && (
             <div className="bg-red-900/50 border border-red-700 text-red-200 p-3 rounded-md">
               {error}
             </div>
           )}
-          
+
           {success && (
             <div className="bg-green-900/50 border border-green-700 text-green-200 p-3 rounded-md">
               {success}
             </div>
           )}
-          
+
           <button
             className="w-full bg-[#566CF9] hover:bg-[#3B49E0] transition rounded-md py-3 text-white font-extrabold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
             type="button"
             onClick={handleWithdraw}
-            disabled={loading || !selectedGame || !amount || parseInt(amount) < 5 || parseInt(amount) > user?.robuxBalance}
+            disabled={
+              loading ||
+              !selectedGame ||
+              !amount ||
+              parseInt(amount) < 5 ||
+              parseInt(amount) > user?.robuxBalance
+            }
           >
             {loading ? "Processing..." : "Redeem"}
           </button>
